@@ -13,6 +13,7 @@ class RoundMap
     @@roundMap[currentIndex] = value
     for i in 0...RoundMapMaxSize
       if (i - currentIndex).abs >= RoundMapMaxSize/2
+        # @@roundMap[i] = -1
         @@roundMap.delete(i)
       end
     end
@@ -30,10 +31,6 @@ end
 if __FILE__ == $0
   rm = RoundMap.new
   print "**** map[0] = #{rm.get(0)} \n"
-
-  for j in 0...5
-    p j
-  end
 
   for i in 0...2005
     rm.put(i, i+1)
